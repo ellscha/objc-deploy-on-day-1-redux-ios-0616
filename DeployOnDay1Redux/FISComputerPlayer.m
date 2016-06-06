@@ -12,7 +12,7 @@
 
 +(BOOL)isEnabled
 {
-    return NO;
+    return YES;
 }
 
 -(FISTicTacToePosition)nextPlay

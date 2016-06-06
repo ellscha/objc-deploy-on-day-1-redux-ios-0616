@@ -156,17 +156,17 @@ if (![[self playerAtColumn:1 row:1] isEqualToString:@""]) {
 
 -(BOOL)isADraw
 {
-    NSInteger count = 0;
-    while (count <= 8) {
-        if ([[self winningPlayer] isEqualToString:@""]) {
-            count++;
+    for (NSUInteger i = 0; i < [self.board count]; i++) {
+        if ([self.board[i] containsObject:@""]) {
             return NO;
-            NSLog(@"count equals %li, and boolean value is %d", count, [self isADraw]);
+        }
+        else {
+            if ([[self winningPlayer] isEqualToString:@""]) {
+                return YES;
+            }
         }
     }
-    return YES;
-
-    
+    return NO;
 }
 
 @end
