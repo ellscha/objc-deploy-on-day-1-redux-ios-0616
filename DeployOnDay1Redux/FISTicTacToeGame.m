@@ -10,7 +10,7 @@
 
 @interface FISTicTacToeGame ()
 
-@property (nonatomic, strong) NSMutableArray *board;
+
 
 @end
 
@@ -156,17 +156,16 @@ if (![[self playerAtColumn:1 row:1] isEqualToString:@""]) {
 
 -(BOOL)isADraw
 {
+    if (![[self winningPlayer] isEqualToString:@""]) {
+        return NO;
+    }
+    BOOL isItADraw = YES;
     for (NSUInteger i = 0; i < [self.board count]; i++) {
         if ([self.board[i] containsObject:@""]) {
-            return NO;
-        }
-        else {
-            if ([[self winningPlayer] isEqualToString:@""]) {
-                return YES;
-            }
+            isItADraw = NO;
         }
     }
-    return NO;
+    return isItADraw;
 }
 
 @end
